@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendEmail, emailTemplates } from '@/lib/email';
+import { sendEmail, emailTemplates, ADMIN_EMAIL } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   console.log('📧 [API] Refund created email endpoint called');
@@ -57,9 +57,13 @@ export async function POST(request: NextRequest) {
       htmlLength: template.html.length,
     });
 
+    // Admin copies always go to the configured admin inbox; only the
+    // customer copy uses the address supplied by the caller.
+    const recipient = isAdmin ? ADMIN_EMAIL : email;
+
     console.log('📧 [API] Calling sendEmail function...');
     const result = await sendEmail({
-      to: email,
+      to: recipient,
       subject: template.subject,
       html: template.html,
     });

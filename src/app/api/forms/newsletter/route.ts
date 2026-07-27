@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendEmail } from '@/lib/email';
+import { sendEmail, ADMIN_EMAIL } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
     `;
 
     const result = await sendEmail({
-      to: 'contact@trustedgebank.com',
+      to: ADMIN_EMAIL,
       subject: `📰 New Newsletter Subscription - ${email}`,
       html: emailContent,
     });

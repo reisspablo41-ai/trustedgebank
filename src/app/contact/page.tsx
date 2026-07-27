@@ -171,7 +171,7 @@ export default function ContactPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-0 text-sm">
-                contact@trustedgebank.com
+                support@trustedgebank.com
               </CardContent>
             </Card>
             <Card>

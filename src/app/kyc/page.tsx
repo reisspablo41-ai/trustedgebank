@@ -343,7 +343,7 @@ export default function KycPage() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              adminEmail: 'contact@trustedgebank.com',
+              // Recipient is resolved server-side from ADMIN_EMAIL.
               userName: userData?.full_name || 'Unknown User',
               userEmail: userData?.email || 'unknown@example.com',
               submissionId: inserted[0]?.id || 'unknown',

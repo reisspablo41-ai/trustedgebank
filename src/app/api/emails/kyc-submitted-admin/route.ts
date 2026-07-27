@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendEmail, emailTemplates } from '@/lib/email';
+import { sendEmail, emailTemplates, ADMIN_EMAIL } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   console.log('📧 [API] KYC submitted admin notification endpoint called');
@@ -8,18 +8,14 @@ export async function POST(request: NextRequest) {
     const requestBody = await request.json();
     console.log('📧 [API] Request body received:', requestBody);
 
-    const {
-      adminEmail,
-      userName,
-      userEmail,
-      submissionId,
-      idType,
-      address,
-      phoneNumber,
-    } = requestBody;
+    // The recipient is deliberately NOT read from the body — it is always the
+    // configured admin inbox. Accepting it from the caller would let anyone
+    // send mail from our verified domain to any address.
+    const { userName, userEmail, submissionId, idType, address, phoneNumber } =
+      requestBody;
 
     console.log('📧 [API] Parsed parameters:', {
-      adminEmail,
+      adminEmail: ADMIN_EMAIL,
       userName,
       userEmail,
       submissionId,
@@ -28,7 +24,7 @@ export async function POST(request: NextRequest) {
       phoneNumber,
     });
 
-    if (!adminEmail || !userName || !userEmail || !submissionId) {
+    if (!userName || !userEmail || !submissionId) {
       console.error('📧 [API] Missing required fields');
       return NextResponse.json(
         { error: 'Missing required fields' },
@@ -53,7 +49,7 @@ export async function POST(request: NextRequest) {
 
     console.log('📧 [API] Calling sendEmail function...');
     const result = await sendEmail({
-      to: adminEmail,
+      to: ADMIN_EMAIL,
       subject: template.subject,
       html: template.html,
     });

@@ -14,6 +14,17 @@ function getResend(): Resend | null {
 const FROM_EMAIL =
   process.env.NEXT_PUBLIC_FROM_EMAIL || 'Trust Edge Bank <noreply@resend.dev>';
 
+/**
+ * Where every admin-bound notification is delivered: contact/newsletter/notify
+ * form submissions, KYC submission alerts, and admin refund alerts.
+ *
+ * Resolved server-side on purpose. Two routes used to take the recipient from
+ * the request body, which let any caller send mail from our verified domain to
+ * an address of their choosing.
+ */
+export const ADMIN_EMAIL =
+  process.env.ADMIN_EMAIL || 'support@trustedgebank.com';
+
 export interface EmailOptions {
   to: string;
   subject: string;
@@ -85,7 +96,7 @@ const getEmailFooter = () => `
       </p>
       <p style="margin: 10px 0;">
         <strong style="color: #1f2937;">Email:</strong> 
-        <a href="mailto:contact@trustedgebank.com" style="color: #2563eb; text-decoration: none;">contact@trustedgebank.com</a>
+        <a href="mailto:support@trustedgebank.com" style="color: #2563eb; text-decoration: none;">support@trustedgebank.com</a>
       </p>
     </div>
     
@@ -665,7 +676,7 @@ export const emailTemplates = {
             <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 20px; margin: 30px 0;">
               <h4 style="color: #1e40af; font-size: 16px; margin: 0 0 10px 0;">📋 Important Information</h4>
               <p style="color: #1e40af; font-size: 14px; line-height: 1.6; margin: 0;">
-                Please keep this reference number for your records: <strong>${reference}</strong>. If you notice any discrepancies or did not authorize this transfer, please contact our fraud prevention team immediately at contact@trustedgebank.com or call +1 (804) 973-0278.
+                Please keep this reference number for your records: <strong>${reference}</strong>. If you notice any discrepancies or did not authorize this transfer, please contact our fraud prevention team immediately at support@trustedgebank.com or call +1 (804) 973-0278.
               </p>
               </div>
             
@@ -958,7 +969,7 @@ export const emailTemplates = {
               </p>
               <p style="margin: 10px 0;">
                 <strong style="color: #1f2937;">Email:</strong> 
-                <a href="mailto:contact@trustedgebank.com" style="color: #2563eb; text-decoration: none;">contact@trustedgebank.com</a>
+                <a href="mailto:support@trustedgebank.com" style="color: #2563eb; text-decoration: none;">support@trustedgebank.com</a>
               </p>
               <p style="margin: 5px 0;">
                 <strong style="color: #1f2937;">Phone:</strong> 
