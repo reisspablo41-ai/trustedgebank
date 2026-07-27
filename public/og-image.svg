@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e5c3e" />
+      <stop offset="55%" stop-color="#0b4630" />
+      <stop offset="100%" stop-color="#06301f" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d9a93f" />
+      <stop offset="100%" stop-color="#f5d585" />
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5d585" />
+      <stop offset="100%" stop-color="#d9a93f" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.18" r="0.55">
+      <stop offset="0%" stop-color="#2aa877" stop-opacity="0.38" />
+      <stop offset="100%" stop-color="#2aa877" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+
+  <!-- logo lockup -->
+  <g transform="translate(80,74)">
+    <rect width="72" height="72" rx="16" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.22" />
+    <g transform="translate(4,4) scale(0.9375)">
+      <path d="M32 11.5l16 5.6v13.2c0 10.2-6.6 18.6-16 21.7-9.4-3.1-16-11.5-16-21.7V17.1z"
+            fill="none" stroke="#ffffff" stroke-opacity="0.94" stroke-width="3.2" stroke-linejoin="round" />
+      <path d="M23 37.6l6.5-7 5 4.8 7.5-9.2"
+            fill="none" stroke="url(#gold)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M37.4 26.2h5.6v5.5"
+            fill="none" stroke="url(#gold)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="94" y="34" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-size="30" font-weight="700" fill="#ffffff" letter-spacing="3.5">TRUST EDGE BANK</text>
+    <text x="96" y="60" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-size="16" font-weight="400" fill="#ffffff" fill-opacity="0.62" letter-spacing="2.4">BANKING MADE SIMPLE</text>
+  </g>
+
+  <!-- headline -->
+  <text x="80" y="300" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="68" font-weight="700" fill="#ffffff" letter-spacing="-1.4">Modern banking,</text>
+  <text x="80" y="378" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="68" font-weight="700" fill="#ffffff" letter-spacing="-1.4">built on trust</text>
+
+  <text x="80" y="438" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="26" font-weight="400" fill="#ffffff" fill-opacity="0.72">Checking, savings, transfers and cards — secure by design.</text>
+
+  <rect x="80" y="492" width="440" height="3" rx="1.5" fill="url(#rule)" />
+
+  <text x="80" y="546" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="22" font-weight="500" fill="#ffffff" fill-opacity="0.60">trustedgebank.com</text>
+  <text x="330" y="546" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="22" font-weight="400" fill="#ffffff" fill-opacity="0.38">Member FDIC</text>
+
+  <!-- oversized watermark shield -->
+  <g transform="translate(880,120) scale(7.2)" opacity="0.10">
+    <path d="M32 11.5l16 5.6v13.2c0 10.2-6.6 18.6-16 21.7-9.4-3.1-16-11.5-16-21.7V17.1z"
+          fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round" />
+  </g>
+</svg>

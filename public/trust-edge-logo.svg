@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Trust Edge Bank">
+  <defs>
+    <linearGradient id="te-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#127a52" />
+      <stop offset="100%" stop-color="#0b4630" />
+    </linearGradient>
+    <linearGradient id="te-gold" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d9a93f" />
+      <stop offset="100%" stop-color="#f5d585" />
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#te-bg)" />
+
+  <!-- shield: trust / protection -->
+  <path d="M32 11.5l16 5.6v13.2c0 10.2-6.6 18.6-16 21.7-9.4-3.1-16-11.5-16-21.7V17.1z"
+        fill="none" stroke="#ffffff" stroke-opacity="0.92" stroke-width="3" stroke-linejoin="round" />
+
+  <!-- ascending edge: growth -->
+  <path d="M23 37.6l6.5-7 5 4.8 7.5-9.2"
+        fill="none" stroke="url(#te-gold)" stroke-width="3.6"
+        stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- arrowhead closing the edge -->
+  <path d="M37.4 26.2h5.6v5.5"
+        fill="none" stroke="url(#te-gold)" stroke-width="3.6"
+        stroke-linecap="round" stroke-linejoin="round" />
+</svg>
