@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/contexts/AuthContext';
@@ -243,6 +244,14 @@ export default function RootLayout({
             </SimpleToastProvider>
           </AuthProvider>
         </ThemeProvider>
+
+        {/* Jivo live-chat widget. lazyOnload keeps it off the critical path so
+            it never competes with page content for bandwidth. */}
+        <Script
+          id="jivosite-widget"
+          src="https://code.jivosite.com/widget/qxc6RObHK0"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
