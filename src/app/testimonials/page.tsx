@@ -16,7 +16,7 @@ const testimonials = [
     name: 'Michael Chen',
     role: 'Software Engineer',
     content:
-      'Best banking app I&apos;ve ever used. The interface is clean, intuitive, and the customer support is incredibly responsive.',
+      'Best banking app I’ve ever used. The interface is clean, intuitive, and the customer support is incredibly responsive.',
     rating: 4.8,
   },
   {
@@ -72,14 +72,14 @@ const testimonials = [
     name: 'Christopher Lee',
     role: 'Consultant',
     content:
-      'The spending analytics help me understand where my money goes. It&apos;s like having a financial advisor in my pocket.',
+      'The spending analytics help me understand where my money goes. It’s like having a financial advisor in my pocket.',
     rating: 4.4,
   },
   {
     name: 'Michelle Brown',
     role: 'Real Estate Agent',
     content:
-      'I switched to Trust Edge Bank six months ago and haven&apos;t looked back. The interest rates on savings are competitive.',
+      'I switched to Trust Edge Bank six months ago and haven’t looked back. The interest rates on savings are competitive.',
     rating: 4.9,
   },
   {
@@ -93,7 +93,7 @@ const testimonials = [
     name: 'Sophia Patel',
     role: 'Photographer',
     content:
-      'Love the dark mode! It&apos;s perfect for checking my account at night without straining my eyes.',
+      'Love the dark mode! It’s perfect for checking my account at night without straining my eyes.',
     rating: 5,
   },
   {
@@ -141,7 +141,7 @@ const testimonials = [
     name: 'Thomas Clark',
     role: 'Musician',
     content:
-      'The notifications keep me informed about every transaction. I always know what&apos;s happening with my money.',
+      'The notifications keep me informed about every transaction. I always know what’s happening with my money.',
     rating: 4.7,
   },
   {
@@ -190,14 +190,14 @@ const testimonials = [
     name: 'Emma King',
     role: 'Veterinarian',
     content:
-      'Trustworthy and reliable. I&apos;ve recommended Trust Edge Bank to all my colleagues and friends.',
+      'Trustworthy and reliable. I’ve recommended Trust Edge Bank to all my colleagues and friends.',
     rating: 5,
   },
   {
     name: 'Noah Wright',
     role: 'Pilot',
     content:
-      'Banking on the go has never been easier. Whether I&apos;m traveling or at home, Trust Edge Bank is always accessible.',
+      'Banking on the go has never been easier. Whether I’m traveling or at home, Trust Edge Bank is always accessible.',
     rating: 4.6,
   },
   {
@@ -211,7 +211,7 @@ const testimonials = [
     name: 'Benjamin Green',
     role: 'Professor',
     content:
-      'Trust Edge Bank combines traditional banking values with modern technology. It&apos;s the best of both worlds!',
+      'Trust Edge Bank combines traditional banking values with modern technology. It’s the best of both worlds!',
     rating: 4.9,
   },
 ];

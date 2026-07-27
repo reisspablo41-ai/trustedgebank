@@ -210,7 +210,7 @@ export default function NotificationsPage() {
                 ? `You have ${unreadCount} unread notification${
                     unreadCount > 1 ? 's' : ''
                   }`
-                : 'You&apos;re all caught up!'}
+                : 'You’re all caught up!'}
             </p>
           </div>
           {unreadCount > 0 && (

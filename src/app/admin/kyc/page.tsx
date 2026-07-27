@@ -89,10 +89,14 @@ export default function AdminKycPage() {
       const savingsAccountNumber = Math.floor(Math.random() * 10000000000)
         .toString()
         .padStart(10, '0');
+      const investmentAccountNumber = Math.floor(Math.random() * 10000000000)
+        .toString()
+        .padStart(10, '0');
 
       console.log('🔢 Generated account numbers:', {
         checking: checkingAccountNumber,
         savings: savingsAccountNumber,
+        investment: investmentAccountNumber,
       });
 
       // Create checking account
@@ -144,6 +148,33 @@ export default function AdminKycPage() {
         console.error('❌ Savings account data was:', savingsData);
       } else {
         console.log('✅ Savings account created successfully:', savingsAccount);
+      }
+
+      // Create investment account
+      console.log('📈 Creating investment account...');
+      const investmentData = {
+        user_id: userId,
+        account_type: 'investment',
+        account_number: investmentAccountNumber,
+        balance: 0,
+      };
+
+      console.log('📝 Investment account data:', investmentData);
+
+      const { data: investmentAccount, error: investmentError } = await supabase
+        .from('accounts')
+        .insert(investmentData)
+        .select()
+        .single();
+
+      if (investmentError) {
+        console.error('❌ Error creating investment account:', investmentError);
+        console.error('❌ Investment account data was:', investmentData);
+      } else {
+        console.log(
+          '✅ Investment account created successfully:',
+          investmentAccount
+        );
       }
 
       // Update bank user status

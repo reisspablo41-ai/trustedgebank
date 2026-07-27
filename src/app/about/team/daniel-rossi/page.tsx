@@ -82,7 +82,7 @@ export default function DanielRossiPage() {
           <p>
             Before joining Trust Edge Bank, Daniel served as Head of Risk and
             Compliance at Square, where he built and scaled the risk
-            organization to support the company&apos;s rapid growth. Prior to
+            organization to support the company’s rapid growth. Prior to
             Square, he held senior risk positions at JPMorgan Chase, where he
             led enterprise-wide risk programs and managed relationships with
             federal banking regulators.
@@ -305,7 +305,7 @@ export default function DanielRossiPage() {
                 Interested in joining our risk and compliance team?
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                We&apos;re building a world-class risk organization. Join us!
+                We’re building a world-class risk organization. Join us!
               </p>
               <div className="mt-4 flex gap-3 justify-center">
                 <Link href="/careers">

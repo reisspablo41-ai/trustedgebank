@@ -814,7 +814,7 @@ export default function CardsPage() {
           <DialogHeader>
             <DialogTitle>Request Physical Card</DialogTitle>
             <DialogDescription>
-              Choose the type of physical card you&apos;d like to receive
+              Choose the type of physical card you’d like to receive
             </DialogDescription>
           </DialogHeader>
 

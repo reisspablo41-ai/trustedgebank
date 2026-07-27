@@ -791,7 +791,7 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-                    Today&apos;s rates
+                    Today’s rates
                   </h2>
                   <p className="mt-3 text-muted-foreground">
                     Published openly and updated daily. No teaser rates that
@@ -931,7 +931,7 @@ export default function Home() {
                   Security &amp; compliance
                 </Badge>
                 <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-                  Your money, guarded like it&apos;s ours
+                  Your money, guarded like it’s ours
                 </h2>
                 <p className="mt-4 text-white/75">
                   We hold ourselves to the standards of a national bank because

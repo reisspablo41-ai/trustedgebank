@@ -73,7 +73,7 @@ export default function JordanLeePage() {
         <div className="mt-4 space-y-4 text-muted-foreground">
           <p>
             Jordan Lee is the Chief Executive Officer of Trust Edge Bank, where he
-            leads the company&apos;s mission to modernize banking through
+            leads the company’s mission to modernize banking through
             technology and customer-centric design. With over 15 years of
             experience in the financial services industry, Jordan brings a
             wealth of knowledge in operations, strategy, and building
@@ -90,11 +90,11 @@ export default function JordanLeePage() {
             Jordan is passionate about creating financial products that empower
             people to achieve their goals. He believes that banking should be
             simple, transparent, and accessible to everyone—values that are at
-            the core of Trust Edge Bank&apos;s mission.
+            the core of Trust Edge Bank’s mission.
           </p>
           <p>
             Jordan holds an MBA from Stanford Graduate School of Business and a
-            Bachelor&apos;s degree in Economics from the University of
+            Bachelor’s degree in Economics from the University of
             California, Berkeley. He is a frequent speaker at fintech
             conferences and serves on the advisory board of several financial
             inclusion nonprofits.
@@ -181,7 +181,7 @@ export default function JordanLeePage() {
                   2018 - Present
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Leading the company&apos;s vision, strategy, and operations to
+                  Leading the company’s vision, strategy, and operations to
                   build the most trusted digital bank.
                 </p>
               </div>
@@ -240,7 +240,7 @@ export default function JordanLeePage() {
                 Interested in joining our team?
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                We&apos;re always looking for talented individuals who share our
+                We’re always looking for talented individuals who share our
                 vision.
               </p>
               <div className="mt-4 flex gap-3 justify-center">

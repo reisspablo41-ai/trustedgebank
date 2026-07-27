@@ -21,7 +21,7 @@ import { useToast } from '@/components/ui/simple-toast';
 type Account = {
   id: string;
   account_number: string;
-  account_type: 'checking' | 'savings';
+  account_type: 'checking' | 'savings' | 'investment';
   balance: number;
 };
 
@@ -420,7 +420,7 @@ export default function SendMoneyPage() {
           <CardHeader>
             <CardTitle>Recipient Details</CardTitle>
             <CardDescription>
-              Enter the recipient&apos;s banking information
+              Enter the recipient’s banking information
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -714,7 +714,7 @@ export default function SendMoneyPage() {
 
               <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 p-4 rounded-lg">
                 <p className="text-sm text-blue-900 dark:text-blue-100">
-                  You&apos;ll receive a notification when the transfer is
+                  You’ll receive a notification when the transfer is
                   complete. You can check the status in your transaction
                   history.
                 </p>

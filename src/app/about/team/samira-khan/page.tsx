@@ -87,15 +87,15 @@ export default function SamiraKhanPage() {
             infrastructure services.
           </p>
           <p>
-            At Trust Edge Bank, Samira has architected the company&apos;s modern
+            At Trust Edge Bank, Samira has architected the company’s modern
             cloud-native platform, achieving 99.99% uptime while maintaining
             rapid development velocity. She champions engineering excellence,
             developer experience, and building diverse, inclusive teams.
           </p>
           <p>
-            Samira holds a Master&apos;s degree in Computer Science from MIT and
-            a Bachelor&apos;s degree in Electrical Engineering from Stanford
-            University. She&apos;s an active contributor to open-source projects
+            Samira holds a Master’s degree in Computer Science from MIT and
+            a Bachelor’s degree in Electrical Engineering from Stanford
+            University. She’s an active contributor to open-source projects
             and regularly speaks at technical conferences about distributed
             systems and fintech engineering.
           </p>
@@ -203,7 +203,7 @@ export default function SamiraKhanPage() {
                 </div>
                 <div className="text-sm text-muted-foreground">2014 - 2016</div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Built core infrastructure for Google&apos;s payment systems.
+                  Built core infrastructure for Google’s payment systems.
                 </p>
               </div>
 
@@ -283,7 +283,7 @@ export default function SamiraKhanPage() {
                 Interested in joining our engineering team?
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                We&apos;re building the future of digital banking. Join us!
+                We’re building the future of digital banking. Join us!
               </p>
               <div className="mt-4 flex gap-3 justify-center">
                 <Link href="/careers">

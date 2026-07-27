@@ -1209,7 +1209,7 @@ export default function AdminRefundsPage() {
             <CardHeader>
               <CardTitle>Create New Refund</CardTitle>
               <CardDescription>
-                Issue a refund to a user&apos;s account
+                Issue a refund to a user’s account
               </CardDescription>
             </CardHeader>
             <CardContent>

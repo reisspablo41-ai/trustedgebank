@@ -131,21 +131,19 @@ export default function UserDetailPage() {
 
             const { data: existingAccounts } = await supabase
                 .from('accounts')
-                .select('id')
+                .select('id, account_type')
                 .eq('user_id', user.id);
 
-            if (!existingAccounts || existingAccounts.length === 0) {
-                // Create checking
+            const existingTypes = new Set(
+                (existingAccounts ?? []).map((account) => account.account_type)
+            );
+
+            for (const accountType of ['checking', 'savings', 'investment']) {
+                if (existingTypes.has(accountType)) continue;
+
                 await supabase.from('accounts').insert({
                     user_id: user.id,
-                    account_type: 'checking',
-                    account_number: Math.floor(Math.random() * 10000000000).toString().padStart(10, '0'),
-                    balance: 0
-                });
-                // Create savings
-                await supabase.from('accounts').insert({
-                    user_id: user.id,
-                    account_type: 'savings',
+                    account_type: accountType,
                     account_number: Math.floor(Math.random() * 10000000000).toString().padStart(10, '0'),
                     balance: 0
                 });

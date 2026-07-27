@@ -227,7 +227,7 @@ export default function BranchesPage() {
         <section className="mt-16">
           <div className="rounded-xl border bg-card p-8 md:p-10 text-center">
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-              Can&apos;t visit a branch?
+              Can’t visit a branch?
             </h2>
             <p className="mt-2 text-muted-foreground">
               Experience full-service banking from anywhere with our online and

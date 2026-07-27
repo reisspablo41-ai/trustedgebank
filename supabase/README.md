@@ -4,6 +4,8 @@
 
 Run [`000_init.sql`](000_init.sql) once in the Supabase SQL Editor. That's the whole install — tables, functions, triggers, RLS policies, and the storage bucket.
 
+Then run [`001_investment_accounts.sql`](001_investment_accounts.sql), which adds investment accounts (see below).
+
 Then grant yourself admin (last section of the file, commented out) or `/admin` will bounce you to `/dashboard`:
 
 ```sql
@@ -15,6 +17,16 @@ ON CONFLICT (user_id) DO UPDATE SET role = 'admin', updated_at = now();
 The bucket it creates is `northbridge-storage`, which must match `NEXT_PUBLIC_STORAGE_BUCKET` in `.env.local`.
 
 Re-running the script is safe. It never drops or truncates data.
+
+## `001_investment_accounts.sql`
+
+Adds a third account type, `investment`, plus `investment_assets` (price catalogue), `investment_holdings` (positions) and `investment_orders` (fills).
+
+The key thing to know: on an investment account, `accounts.balance` is **cash / buying power only** — not portfolio value. Positions live in `investment_holdings`, and portfolio value is `public.investment_portfolio_value(account_id)` (cash + positions). Keeping it that way means transfers, transactions and the existing dashboard queries all work on investment accounts unchanged: funding one is an ordinary internal transfer.
+
+Prices are static seed data. Nothing in the app writes `investment_assets.price` — move it yourself or wire up a job.
+
+The script also opens investment accounts for users already KYC-approved, and replaces `create_accounts_after_kyc()` so new approvals get all three accounts.
 
 ## `_archive/`
 

@@ -113,7 +113,7 @@ export default function UpdatePasswordPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Set New Password</CardTitle>
           <CardDescription>
-            Enter your new password below. Make sure it&apos;s strong and
+            Enter your new password below. Make sure it’s strong and
             secure.
           </CardDescription>
         </CardHeader>

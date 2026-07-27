@@ -79,7 +79,7 @@ export default function KycStatusPage() {
             <CardHeader>
               <CardTitle className="text-base">No submission found</CardTitle>
               <CardDescription>
-                You haven&apos;t submitted KYC yet
+                You haven’t submitted KYC yet
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-0">
@@ -103,9 +103,9 @@ export default function KycStatusPage() {
             </CardHeader>
             <CardContent className="pt-0 text-sm text-muted-foreground">
               <p>
-                We&apos;re reviewing your{' '}
+                We’re reviewing your{' '}
                 {kycStatus.identification_type.toUpperCase()} verification. This
-                typically takes 1–2 business days. You&apos;ll receive an email
+                typically takes 1–2 business days. You’ll receive an email
                 when your verification is complete.
               </p>
             </CardContent>
@@ -145,7 +145,7 @@ export default function KycStatusPage() {
             </CardHeader>
             <CardContent className="pt-0 text-sm text-muted-foreground space-y-4">
               <p>
-                We couldn&apos;t verify your identity with the documents
+                We couldn’t verify your identity with the documents
                 provided. Common reasons: blurry photo, expired ID, unreadable
                 text.
               </p>

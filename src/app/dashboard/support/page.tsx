@@ -56,7 +56,7 @@ export default function SupportPage() {
             Support Center
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
-            We&apos;re here to help you 24/7
+            We’re here to help you 24/7
           </p>
         </div>
 

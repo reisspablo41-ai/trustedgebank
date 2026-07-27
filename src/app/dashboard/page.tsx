@@ -45,7 +45,7 @@ import {
 type Account = {
   id: string;
   account_number: string;
-  account_type: 'checking' | 'savings';
+  account_type: 'checking' | 'savings' | 'investment';
   balance: number;
 };
 
@@ -163,6 +163,11 @@ export default function DashboardPage() {
   const [savingsGoal, setSavingsGoal] = useState<SavingsGoal | null>(null);
   const [statements, setStatements] = useState<Statement[]>([]);
   const [pendingRefundsAmount, setPendingRefundsAmount] = useState(0);
+  // accounts.balance for the investment account is cash only, so the portfolio
+  // figure has to come from /api/investments.
+  const [investmentPortfolio, setInvestmentPortfolio] = useState<number | null>(
+    null
+  );
 
   // Transfer form state
   const [fromAccountId, setFromAccountId] = useState('');
@@ -329,6 +334,22 @@ export default function DashboardPage() {
         setAlerts(dashboardData.alerts || []);
         setSavingsGoal(dashboardData.goal);
         setStatements(dashboardData.statements || []);
+
+        // Investment portfolio value (cash + positions)
+        try {
+          const investmentsResponse = await fetch('/api/investments', {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          });
+
+          if (investmentsResponse.ok) {
+            const investmentsData = await investmentsResponse.json();
+            setInvestmentPortfolio(investmentsData.totals?.portfolio ?? null);
+          }
+        } catch (investmentsError) {
+          console.error('Failed to load investments:', investmentsError);
+        }
 
         // Generate monthly trend data from transactions
         console.log('📊 Generating monthly trend data...');
@@ -501,20 +522,33 @@ export default function DashboardPage() {
     );
   }
 
-  // Calculate totals
-  const totalBalance = accounts.reduce((sum, acc) => sum + acc.balance, 0) || 0;
-
   // Get individual account balances
   const checkingAccount = accounts.find(
     (acc) => acc.account_type === 'checking'
   );
   const savingsAccount = accounts.find((acc) => acc.account_type === 'savings');
+  const investmentAccount = accounts.find(
+    (acc) => acc.account_type === 'investment'
+  );
+
+  // What the investment account holds on top of its cash. accounts.balance
+  // already contributes the cash side, so only the positions are added here.
+  const investmentPositions =
+    investmentPortfolio !== null && investmentAccount
+      ? investmentPortfolio - investmentAccount.balance
+      : 0;
+
+  // Calculate totals
+  const totalBalance =
+    accounts.reduce((sum, acc) => sum + acc.balance, 0) + investmentPositions ||
+    0;
 
   console.log('Dashboard balances:', {
     accounts,
     totalBalance,
     checkingAccount,
     savingsAccount,
+    investmentAccount,
   });
 
   return (
@@ -547,7 +581,7 @@ export default function DashboardPage() {
         {/* 1. Account Overview */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold mb-4">Account Overview</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {/* Total Balance */}
             <Card>
               <CardHeader>
@@ -621,12 +655,40 @@ export default function DashboardPage() {
                 </CardContent>
               </Card>
             )}
+
+            {/* Investment Account */}
+            {investmentAccount && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-sm capitalize flex items-center justify-between">
+                    Investment
+                    <Badge variant="outline" className="text-xs font-normal">
+                      ****{investmentAccount.account_number.slice(-4)}
+                    </Badge>
+                  </CardTitle>
+                  <CardDescription className="text-xs">
+                    Portfolio value
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="text-2xl font-semibold">
+                    $
+                    {(
+                      investmentPortfolio ?? investmentAccount.balance
+                    ).toFixed(2)}
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    ${investmentAccount.balance.toFixed(2)} cash available
+                  </p>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </section>
 
         {/* Quick Actions */}
         <section className="mb-8">
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <Button
               variant="outline"
               className="h-auto py-4 flex-col gap-2"
@@ -650,6 +712,14 @@ export default function DashboardPage() {
             >
               <DollarSign className="h-5 w-5" />
               <span className="text-sm">Pay Bills</span>
+            </Button>
+            <Button
+              variant="outline"
+              className="h-auto py-4 flex-col gap-2"
+              onClick={() => router.push('/dashboard/investments')}
+            >
+              <TrendingUp className="h-5 w-5" />
+              <span className="text-sm">Invest</span>
             </Button>
           </div>
         </section>
@@ -851,7 +921,7 @@ export default function DashboardPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">
-                  This Month&apos;s Summary
+                  This Month’s Summary
                 </CardTitle>
                 <CardDescription>
                   Income vs Expenses for{' '}

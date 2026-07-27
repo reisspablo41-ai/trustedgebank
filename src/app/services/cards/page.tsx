@@ -159,7 +159,7 @@ export default function CardServicesPage() {
                 Choose the right card for you
               </h2>
               <p className="mt-2 text-muted-foreground">
-                Whether it&apos;s everyday spending or building credit, we have
+                Whether it’s everyday spending or building credit, we have
                 a card that fits your needs.
               </p>
             </SlideUp>

@@ -25,7 +25,7 @@ export default function CompareAccountsPage() {
         </p>
       </section>
 
-      <section className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card>
           <CardHeader>
             <CardTitle className="text-base">Everyday Checking</CardTitle>
@@ -58,6 +58,24 @@ export default function CompareAccountsPage() {
             <div className="mt-4">
               <Button asChild size="sm" variant="outline">
                 <a href="/open-account">Open savings</a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base">Investment Account</CardTitle>
+            <CardDescription>Put your cash to work</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-0 text-sm">
+            <ul className="list-disc pl-4 space-y-2">
+              <li>Buy ETFs, bonds and individual stocks</li>
+              <li>Fund instantly from checking or savings</li>
+              <li>Track returns and allocation in one place</li>
+            </ul>
+            <div className="mt-4">
+              <Button asChild size="sm" variant="outline">
+                <a href="/open-account">Open investing</a>
               </Button>
             </div>
           </CardContent>

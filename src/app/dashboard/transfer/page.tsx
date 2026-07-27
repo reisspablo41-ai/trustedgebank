@@ -21,7 +21,7 @@ import { ArrowLeft, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 type Account = {
   id: string;
   account_number: string;
-  account_type: 'checking' | 'savings';
+  account_type: 'checking' | 'savings' | 'investment';
   balance: number;
 };
 

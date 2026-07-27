@@ -88,7 +88,7 @@ export default function OpenAccountPage() {
           <CardHeader>
             <CardTitle className="text-base">Sign up</CardTitle>
             <CardDescription>
-              We&apos;ll verify your email before proceeding to identity
+              We’ll verify your email before proceeding to identity
               verification
             </CardDescription>
           </CardHeader>

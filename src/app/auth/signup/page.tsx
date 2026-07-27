@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supbaseClient';
+import { getAuthRedirectOrigin } from '@/lib/site';
 import {
   Card,
   CardContent,
@@ -33,7 +34,12 @@ export default function SignupPage() {
       const { data, error: signErr } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: fullName } },
+        options: {
+          data: { full_name: fullName },
+          // Without this the confirmation link falls back to the dashboard
+          // "Site URL", which sends production users to localhost.
+          emailRedirectTo: `${getAuthRedirectOrigin()}/auth/callback`,
+        },
       });
       if (signErr) throw signErr;
       const user = data.user;

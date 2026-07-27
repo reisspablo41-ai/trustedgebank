@@ -83,7 +83,7 @@ export default function MobileAppPage() {
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
                   Be the first to know when our mobile app is available.
-                  We&apos;ll send you a one-time email when it&apos;s ready to
+                  We’ll send you a one-time email when it’s ready to
                   download.
                 </p>
                 <form
@@ -104,7 +104,7 @@ export default function MobileAppPage() {
                 </form>
                 {notifySuccess && (
                   <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md text-sm text-green-800 dark:text-green-200">
-                    ✓ Thank you! We&apos;ll notify you when the app launches.
+                    ✓ Thank you! We’ll notify you when the app launches.
                   </div>
                 )}
                 {notifyError && (

@@ -189,8 +189,8 @@ export default function AdminUsersPage() {
         console.log('✅ bank_users.kyc_status updated to approved');
       }
 
-      // Create checking and savings accounts for the user
-      console.log('🏦 Creating checking and savings accounts...');
+      // Create checking, savings and investment accounts for the user
+      console.log('🏦 Creating checking, savings and investment accounts...');
 
       // Check if accounts already exist
       const { data: existingAccounts } = await supabase
@@ -200,52 +200,45 @@ export default function AdminUsersPage() {
 
       console.log('📊 Existing accounts:', existingAccounts);
 
-      if (!existingAccounts || existingAccounts.length < 2) {
-        // Create checking account
-        const checkingNumber = Math.floor(Math.random() * 10000000000)
-          .toString()
-          .padStart(10, '0');
-        const { data: checkingAccount, error: checkingError } = await supabase
-          .from('accounts')
-          .insert({
-            user_id: userId,
-            account_type: 'checking',
-            account_number: checkingNumber,
-            balance: 0,
-          })
-          .select()
-          .single();
+      // Only open the types the user is missing — (user_id, account_type) is
+      // unique, so re-inserting an existing type just errors.
+      const existingTypes = new Set(
+        (existingAccounts ?? []).map((account) => account.account_type)
+      );
+      const missingTypes = ['checking', 'savings', 'investment'].filter(
+        (type) => !existingTypes.has(type)
+      );
 
-        if (checkingError) {
-          console.error('❌ Error creating checking account:', checkingError);
-        } else {
-          console.log('✅ Checking account created:', checkingAccount);
-        }
+      if (missingTypes.length === 0) {
+        console.log('✅ User already has accounts, skipping creation');
+      } else {
+        for (const accountType of missingTypes) {
+          const accountNumber = Math.floor(Math.random() * 10000000000)
+            .toString()
+            .padStart(10, '0');
 
-        // Create savings account
-        const savingsNumber = Math.floor(Math.random() * 10000000000)
-          .toString()
-          .padStart(10, '0');
-        const { data: savingsAccount, error: savingsError } = await supabase
-          .from('accounts')
-          .insert({
-            user_id: userId,
-            account_type: 'savings',
-            account_number: savingsNumber,
-            balance: 0,
-          })
-          .select()
-          .single();
+          const { data: account, error: accountError } = await supabase
+            .from('accounts')
+            .insert({
+              user_id: userId,
+              account_type: accountType,
+              account_number: accountNumber,
+              balance: 0,
+            })
+            .select()
+            .single();
 
-        if (savingsError) {
-          console.error('❌ Error creating savings account:', savingsError);
-        } else {
-          console.log('✅ Savings account created:', savingsAccount);
+          if (accountError) {
+            console.error(
+              `❌ Error creating ${accountType} account:`,
+              accountError
+            );
+          } else {
+            console.log(`✅ ${accountType} account created:`, account);
+          }
         }
 
         console.log('🎉 Account creation completed!');
-      } else {
-        console.log('✅ User already has accounts, skipping creation');
       }
 
       // Continue with the rest of the flow

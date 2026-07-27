@@ -252,7 +252,7 @@ export default function SettingsPage() {
                 )}
                 {!phoneError && (
                   <p className="text-xs text-muted-foreground">
-                    We&apos;ll use this for account recovery and notifications.
+                    We’ll use this for account recovery and notifications.
                   </p>
                 )}
               </div>
@@ -283,7 +283,7 @@ export default function SettingsPage() {
                 )}
                 {!addressError && (
                   <p className="text-xs text-muted-foreground">
-                    We&apos;ll use this address for statements and verification.
+                    We’ll use this address for statements and verification.
                   </p>
                 )}
               </div>

@@ -31,7 +31,7 @@ import { useToast } from '@/components/ui/simple-toast';
 type Account = {
   id: string;
   account_number: string;
-  account_type: 'checking' | 'savings';
+  account_type: 'checking' | 'savings' | 'investment';
   balance: number;
 };
 
@@ -661,7 +661,7 @@ export default function BillsPage() {
 
               <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 p-4 rounded-lg">
                 <p className="text-sm text-blue-900 dark:text-blue-100">
-                  You&apos;ll receive a confirmation once the payment is
+                  You’ll receive a confirmation once the payment is
                   delivered. Track the status in your transaction history.
                 </p>
               </div>

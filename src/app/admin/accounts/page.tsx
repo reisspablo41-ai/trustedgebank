@@ -220,6 +220,10 @@ export default function AdminAccountsPage() {
                 Savings:{' '}
                 {accounts.filter((a) => a.account_type === 'savings').length}
               </p>
+              <p>
+                Investment:{' '}
+                {accounts.filter((a) => a.account_type === 'investment').length}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -252,6 +256,7 @@ export default function AdminAccountsPage() {
               <option value="all">All Types</option>
               <option value="checking">Checking</option>
               <option value="savings">Savings</option>
+              <option value="investment">Investment</option>
             </select>
           </div>
         </CardContent>

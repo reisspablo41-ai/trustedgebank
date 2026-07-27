@@ -107,7 +107,7 @@ export default function DebugAuthPage() {
               <li>Or similar Supabase auth cookies</li>
             </ul>
             <p className="mt-2">
-              If cookies are missing, the session won&apos;t persist to
+              If cookies are missing, the session won’t persist to
               middleware.
             </p>
           </CardContent>

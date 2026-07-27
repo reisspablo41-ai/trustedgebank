@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supbaseClient';
+import { getAuthRedirectOrigin } from '@/lib/site';
 import {
   Card,
   CardContent,
@@ -29,7 +30,7 @@ export default function ResetPasswordPage() {
       const { error: resetError } = await supabase.auth.resetPasswordForEmail(
         email,
         {
-          redirectTo: `${window.location.origin}/auth/update-password`,
+          redirectTo: `${getAuthRedirectOrigin()}/auth/update-password`,
         }
       );
 
@@ -67,7 +68,7 @@ export default function ResetPasswordPage() {
             </div>
             <CardTitle className="text-2xl">Check Your Email</CardTitle>
             <CardDescription>
-              We&apos;ve sent a password reset link to <strong>{email}</strong>
+              We’ve sent a password reset link to <strong>{email}</strong>
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -100,7 +101,7 @@ export default function ResetPasswordPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Reset Password</CardTitle>
           <CardDescription>
-            Enter your email address and we&apos;ll send you a link to reset
+            Enter your email address and we’ll send you a link to reset
             your password
           </CardDescription>
         </CardHeader>

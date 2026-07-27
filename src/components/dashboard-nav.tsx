@@ -16,6 +16,7 @@ import {
   Menu,
   X,
   Shield,
+  TrendingUp,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -90,6 +91,11 @@ export function DashboardNav() {
       name: 'Transactions',
       href: '/dashboard/transactions',
       icon: Receipt,
+    },
+    {
+      name: 'Investments',
+      href: '/dashboard/investments',
+      icon: TrendingUp,
     },
     {
       name: 'Cards',
